@@ -75,9 +75,9 @@ app.get('*', (req, res) => {
           .then(() => <ApolloProvider client={ac}>
             <Provider store={store} key="provider">
               <ReduxAsyncConnect {...renderProps} />
-            </Provider>
+            </Provider>,
           </ApolloProvider>)
-          .then(reactApp => getDataFromTree(reactApp)
+          .then((reactApp) => getDataFromTree(reactApp)
             .then(() => {
               const markup = ReactDOMServer.renderToString(reactApp);
               res.status(200).send(renderHTML(markup, store, ac));
@@ -88,19 +88,19 @@ app.get('*', (req, res) => {
     });
 });
 
-app.listen(appConfig.port, appConfig.host, err => {
+app.listen(appConfig.port, appConfig.host, (err) => {
   if (err) {
     console.error(Chalk.bgRed(err));
   } else {
     console.info(Chalk.black.bgGreen(
-      `\n\n💂  Listening at http://${appConfig.host}:${appConfig.port}\n`
+      `\n\n💂  Listening at http://${appConfig.host}:${appConfig.port}\n`,
     ));
   }
 });
 
 function renderHTML(markup: string, store: any, client: any) {
   const html = ReactDOMServer.renderToString(
-    <Html markup={markup} manifest={manifest} store={store} client={client} />
+    <Html markup={markup} manifest={manifest} store={store} client={client} />,
   );
 
   return `<!doctype html> ${html}`;

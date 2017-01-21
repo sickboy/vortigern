@@ -126,7 +126,6 @@ var config = {
       }
     }),
     new webpack.optimize.OccurrenceOrderPlugin(),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: 'vendor',
       filename: 'js/[name].[chunkhash].js',
