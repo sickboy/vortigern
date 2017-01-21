@@ -1,14 +1,15 @@
-.nav ul {
-  list-style-type: none;
-  padding: 0;
-}
+/*.nav {
+  ul {
+    list-style-type: none;
+    padding: 0;
+    li {
+      display: inline;
+      padding: 5px;
+      color: blue;
+    }
+  }
 
-.nav ul li {
-  display: inline;
-  padding: 5px;
-  color: blue;
-}
-
-a {
-  color: pink;
-}
+  a {
+    color: pink;
+  }
+}*/

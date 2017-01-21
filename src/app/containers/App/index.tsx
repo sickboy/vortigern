@@ -1,20 +1,24 @@
 const appConfig = require('../../../../config/main');
+
 import * as React from 'react';
 import * as Helmet from 'react-helmet';
-import { Header } from 'components';
+import { Header, Footer } from 'components';
 
-class App extends React.Component<any, any> {
+export default class App extends React.Component<any, any> {
   public render() {
     const s = require('./style.css');
 
     return (
       <section className={s.appContainer}>
-        <Helmet {...appConfig.app} {...appConfig.app.head}/>
+        <Helmet {...appConfig.app} {...appConfig.app.head} />
         <Header />
+        <noscript className="container" style={{ display: 'block' }}>
+          Your browser does not support JavaScript!
+          You will not be able to read the information on the back of cards.
+        </noscript>
         {this.props.children}
+        <Footer />
       </section>
     );
   }
 }
-
-export { App }

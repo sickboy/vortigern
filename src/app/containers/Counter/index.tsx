@@ -18,8 +18,7 @@ interface IProps {
     increment: () => dispatch(increment()),
   }),
 )
-
-class Counter extends React.Component<IProps, void> {
+export default class Counter extends React.Component<IProps, void> {
 
   public render() {
     const { increment, decrement, counter } = this.props;
@@ -43,5 +42,3 @@ class Counter extends React.Component<IProps, void> {
     );
   }
 }
-
-export { Counter }

@@ -1,5 +1,27 @@
-.appContainer {
-  padding: 0;
-  margin: 0;
-  text-align: center;
+.appContainer {}
+
+:global(.markdown) {
+  img {
+    height: auto;
+    max-width: 100%;
+  }
+}
+
+:global(.grid-container) {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+}
+
+:global(.card) {
+   :global(.card-content) {
+    p {
+      &:not(:last-child) {
+        margin-bottom: 15px;
+      }
+
+      &:not(:first-child) {
+        margin-top: 15px;
+      }
+    }
+  }
 }

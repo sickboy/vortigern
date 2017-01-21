@@ -38,6 +38,10 @@ var config = {
         loader: 'json-loader'
       },
       {
+        test: /\.(md|txt)$/,
+        loader: 'raw-loader'
+      },
+      {
         test: /\.jsx$/,
         loader: 'babel-loader'
       },

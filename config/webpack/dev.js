@@ -5,6 +5,7 @@ var postcssAssets = require('postcss-assets');
 var postcssNext = require('postcss-cssnext');
 var stylelint = require('stylelint');
 var ManifestPlugin = require('webpack-manifest-plugin');
+
 var CheckerPlugin = require('awesome-typescript-loader').CheckerPlugin;
 
 var config = {
@@ -40,6 +41,10 @@ var config = {
       {
         test: /\.tsx?$/,
         loader: 'react-hot-loader!awesome-typescript-loader'
+      },
+      {
+        test: /\.(md|txt)$/,
+        loader: 'raw-loader'
       },
       {
         test: /\.jsx$/,
@@ -107,6 +112,7 @@ var config = {
             postcssAssets({
               relative: true
             }),
+            require('postcss-nested')
           ];
         },
       }

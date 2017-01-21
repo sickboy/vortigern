@@ -49,6 +49,10 @@ var config = {
         loader: 'react-hot-loader!awesome-typescript-loader'
       },
       {
+        test: /\.(md|txt)$/,
+        loader: 'raw-loader'
+      },
+      {
         test: /\.jsx$/,
         loader: 'babel-loader'
       },
@@ -116,6 +120,7 @@ var config = {
             postcssAssets({
               relative: true
             }),
+            require('postcss-nested')
           ];
         },
       }

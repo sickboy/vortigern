@@ -14,7 +14,10 @@ const { ReduxAsyncConnect, loadOnServer } = require('redux-connect');
 import { configureStore } from './app/redux/store';
 import routes from './app/routes';
 
-import { Html } from './app/containers';
+import { ApolloProvider, getDataFromTree } from 'react-apollo';
+import { createClient } from './shared';
+
+import Html from './app/containers/Html';
 const manifest = require('../build/manifest.json');
 
 const express = require('express');
@@ -48,7 +51,8 @@ if (process.env.NODE_ENV !== 'production') {
 
 app.use(favicon(path.join(__dirname, 'public/favicon.ico')));
 
-app.use('/public', express.static(path.join(__dirname, 'public')));
+app.use('/public', express.static(path.join(__dirname, 'public'),
+  { maxAge: 4 * 60 * 60 })); // TODO: Can actually use 30 days too...
 
 app.get('*', (req, res) => {
   const location = req.url;
@@ -65,14 +69,19 @@ app.get('*', (req, res) => {
       } else if (renderProps) {
         const asyncRenderData = Object.assign({}, renderProps, { store });
 
-        loadOnServer(asyncRenderData).then(() => {
-          const markup = ReactDOMServer.renderToString(
+        const ac = createClient({ ssrMode: true }); // , req.headers
+
+        loadOnServer(asyncRenderData)
+          .then(() => <ApolloProvider client={ac}>
             <Provider store={store} key="provider">
               <ReduxAsyncConnect {...renderProps} />
             </Provider>
-          );
-          res.status(200).send(renderHTML(markup, store));
-        });
+          </ApolloProvider>)
+          .then(reactApp => getDataFromTree(reactApp)
+            .then(() => {
+              const markup = ReactDOMServer.renderToString(reactApp);
+              res.status(200).send(renderHTML(markup, store, ac));
+            }));
       } else {
         res.status(404).send('Not Found?');
       }
@@ -89,9 +98,9 @@ app.listen(appConfig.port, appConfig.host, err => {
   }
 });
 
-function renderHTML(markup: string, store: any) {
+function renderHTML(markup: string, store: any, client: any) {
   const html = ReactDOMServer.renderToString(
-    <Html markup={markup} manifest={manifest} store={store} />
+    <Html markup={markup} manifest={manifest} store={store} client={client} />
   );
 
   return `<!doctype html> ${html}`;

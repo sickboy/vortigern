@@ -1,14 +1,16 @@
 import { IStore } from 'redux/IStore';
 import * as React from 'react';
 import * as Helmet from 'react-helmet';
+import ApolloClient from 'apollo-client';
 
 interface IHtmlProps {
   manifest?: Object;
   markup?: string;
   store?: Redux.Store<IStore>;
+  client?: ApolloClient;
 }
 
-class Html extends React.Component<IHtmlProps, {}> {
+export default class Html extends React.Component<IHtmlProps, {}> {
   private resolve(files) {
     return files.map((src) => {
       if (!this.props.manifest[src]) { return; }
@@ -18,7 +20,7 @@ class Html extends React.Component<IHtmlProps, {}> {
 
   public render() {
     const head = Helmet.rewind();
-    const { markup, store } = this.props;
+    const { markup, store, client } = this.props;
 
     const styles = this.resolve(['vendor.css', 'app.css']);
     const renderStyles = styles.map((src, i) =>
@@ -30,8 +32,14 @@ class Html extends React.Component<IHtmlProps, {}> {
       <script src={src} key={i} />,
     );
 
+    const initialClientState = {
+      [client.reduxRootKey]: {
+        data: client.store.getState()[client.reduxRootKey].data,
+      },
+    };
+
     // tslint:disable-next-line:max-line-length
-    const initialState = (<script dangerouslySetInnerHTML={{ __html: `window.__INITIAL_STATE__=${JSON.stringify(store.getState())};` }} charSet="UTF-8" />);
+    const initialState = (<script dangerouslySetInnerHTML={{ __html: `window.__INITIAL_STATE__=${JSON.stringify(store.getState())}; window.__APOLLO_STATE__=${JSON.stringify(initialClientState)};` }} charSet="UTF-8" />);
 
     return (
       <html>
@@ -44,6 +52,8 @@ class Html extends React.Component<IHtmlProps, {}> {
 
           {renderStyles}
           <link rel="shortcut icon" href="/favicon.ico" />
+          <link href="https://fonts.googleapis.com/icon?family=Material+Icons"
+            rel="stylesheet" />
         </head>
         <body>
           <main id="app" dangerouslySetInnerHTML={{ __html: markup }} />
@@ -54,5 +64,3 @@ class Html extends React.Component<IHtmlProps, {}> {
     );
   }
 }
-
-export { Html }
