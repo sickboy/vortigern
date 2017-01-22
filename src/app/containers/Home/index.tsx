@@ -43,7 +43,7 @@ export default class Home extends React.Component<any, any> {
                 <h3>About me</h3>
                 <About />
               </div>
-              <div id="posts">
+              <div id="posts"  style={{'margin-top': '800px'}}>
                 <h3>Posts</h3>
                 <BlogPostsList />
               </div>

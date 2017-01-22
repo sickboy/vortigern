@@ -16,20 +16,29 @@ export default class About extends React.Component<any, any> {
     return (
       <div className={[s.about].join(' ')}>
         <div className="row grid-container">
-          <div className="col m12 l6">
+          <div className="col m6">
             <div className="card hoverable">
-              <div className="card-image">
-                <img src={require('./intro.jpg')} />
+              <div className="card-image waves-effect waves-block waves-light">
+                <img className="activator" src={require('./intro.jpg')} />
               </div>
               <div className="card-content">
-                <span className="card-title">Intro</span>
+                <span className="card-title activator">
+                  Intro
+                  <i className="material-icons right">more_vert</i>
+                </span>
+                </div>
+                <div className="card-reveal">
+                  <span className="card-title activator">
+                   Intro
+                <i className="material-icons right">close</i>
+                </span>
                 <ReactMarkdown className="markdown" source={require('./intro.md')}
                   renderers={renderers} />
               </div>
             </div>
           </div>
 
-          <div className="col m12 l6">
+          <div className="col m6">
             <div className="card hoverable">
               <div className="card-image waves-effect waves-block waves-light">
                 <img className="activator" src={require('./development.jpg')} />
@@ -37,7 +46,7 @@ export default class About extends React.Component<any, any> {
               <div className="card-content">
                 <span className="card-title activator">
                   My Development experience
-                <i className="material-icons right">more_vert</i>
+                  <i className="material-icons right">more_vert</i>
                 </span>
               </div>
               <div className="card-reveal">
@@ -50,7 +59,9 @@ export default class About extends React.Component<any, any> {
                   renderers={renderers} />
               </div>
             </div>
+          </div>
 
+          <div className="col m6">
             <div className="card hoverable">
               <div className="card-image waves-effect waves-block waves-light">
                 <img className="activator" src={require('./network.jpg')} />
@@ -70,7 +81,9 @@ export default class About extends React.Component<any, any> {
                   renderers={renderers} />
               </div>
             </div>
+          </div>
 
+          <div className="col m6">
             <div className="card hoverable">
               <div className="card-image waves-effect waves-block waves-light">
                 <img className="activator" src={require('./heroes.jpg')} />
@@ -90,7 +103,9 @@ export default class About extends React.Component<any, any> {
                   renderers={renderers} />
               </div>
             </div>
+          </div>
 
+          <div className="col m6">
             <div className="card hoverable">
               <div className="card-image waves-effect waves-block waves-light">
                 <img className="activator" src={require('./favorites.jpg')} />
