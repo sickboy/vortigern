@@ -6,6 +6,7 @@ import gql from 'graphql-tag';
 const MyQuery = gql`query {
   posts(user: "@patrickroza", collectionId: "645aa5e37697") {
     title
+    excerpt
     subtitle
     createdAt
     firstPublishedAt
@@ -24,13 +25,23 @@ export default class BlogPostsList extends React.Component<any, any> {
 
   public render() {
     const listItem = (item) =>
-      <li key={item.url}>
-        <a className="grey-text text-lighten-3" href={item.url}>{item.title}</a>
-      </li>;
+      <div className="col m6" key={item.url}>
+        <div className="card">
+          <div className="card-content">
+          <span className="card-title">
+          {item.title}
+          </span>
+          <div>
+            <div><i>{item.excerpt}</i></div>
+              <a target="_blank" href={item.url}>Read More</a>
+            </div>
+          </div>
+        </div>
+      </div>;
     const list = () =>
-      <ul>
+      <div className="row">
         {this.props.data.posts.map((item) => listItem(item))}
-      </ul>;
+      </div>;
     return (
       <div>
         {this.props.data.loading ? <span>Loading...</span> : list()}

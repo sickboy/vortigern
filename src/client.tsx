@@ -5,7 +5,7 @@ import 'isomorphic-fetch';
 import * as React from 'react';
 import * as ReactDOM from 'react-dom';
 import { Provider } from 'react-redux';
-const { Router, browserHistory } = require('react-router');
+const { applyRouterMiddleware, Router, browserHistory } = require('react-router');
 import { syncHistoryWithStore } from 'react-router-redux';
 const { ReduxAsyncConnect } = require('redux-connect');
 import { configureStore } from './app/redux/store';
@@ -25,7 +25,26 @@ const store = configureStore(
   window.__INITIAL_STATE__,
 );
 const history = syncHistoryWithStore(browserHistory, store);
-const connectedCmp = (props) => <ReduxAsyncConnect {...props} />;
+
+import { useScroll } from 'react-router-scroll';
+
+// const scroll = useScroll((prevRouterProps, { routes }) => {
+//   if (routes.some((route) => route.ignoreScrollBehavior)) {
+//     return false;
+//   }
+
+//   if (routes.some((route) => route.scrollToTop)) {
+//     return [0, 0];
+//   }
+
+//   if (prevRouterProps) { return true; } else { return true; }
+// });
+
+const scroll = useScroll((prevRouterProps, { location }) => (
+  prevRouterProps && location.pathname !== prevRouterProps.location.pathname
+));
+
+const connectedCmp = (props) => <ReduxAsyncConnect {...props} render={applyRouterMiddleware(scroll)} />;
 
 ReactDOM.render(
   <ApolloProvider client={ac}>

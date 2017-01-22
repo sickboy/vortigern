@@ -2,7 +2,7 @@ const appConfig = require('../../../../config/main');
 
 import * as React from 'react';
 import * as Helmet from 'react-helmet';
-import { Header, Footer } from 'components';
+import { Header } from 'components';
 const s = require('./style.css');
 
 export default class App extends React.Component<any, any> {
@@ -16,7 +16,6 @@ export default class App extends React.Component<any, any> {
           You will not be able to read the information on the back of cards.
         </noscript>
         {this.props.children}
-        <Footer />
       </section>
     );
   }

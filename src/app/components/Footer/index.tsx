@@ -1,6 +1,6 @@
 import * as React from 'react';
 
-import BlogPostsList from './BlogPostsList';
+// import BlogPostsList from './BlogPostsList';
 import ConnectList from './ConnectList';
 
 export default class Footer extends React.Component<any, any> {
@@ -12,10 +12,8 @@ export default class Footer extends React.Component<any, any> {
         <div className="container">
           <div className="row">
             <div className="col l6 s12">
-              <h5 className="white-text">Posts</h5>
-              <BlogPostsList />
+              <span>_</span>
             </div>
-
             <div className="col l4 offset-l2 s12">
               <h5 className="white-text">Connect</h5>
               <ConnectList />
