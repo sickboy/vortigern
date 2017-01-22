@@ -17,7 +17,6 @@ export default class Home extends React.Component<any, any> {
 
     return (
       <div className={s.home}>
-        <a name="top" className="anchor" />
         <div className="container">
           <div className="row grid-container">
             <div className="col m5 l3">
@@ -40,13 +39,11 @@ export default class Home extends React.Component<any, any> {
             </div>
           </div>
             <div className="col m7 l9">
-            <div>
-              <a name="about" className="anchor" />
+            <div id="about">
                 <h3>About me</h3>
                 <About />
               </div>
-              <div>
-                <a name="posts" className="anchor" />
+              <div id="posts">
                 <h3>Posts</h3>
                 <BlogPostsList />
               </div>

@@ -16,7 +16,8 @@
     "lint": "node_modules/.bin/tslint \"src/**/**.ts*\""
   },
   "author": "Barbar Startup Factory <hey@barbar.com.tr>",
-  "contributors": [{
+  "contributors": [
+    {
       "name": "Altay Aydemir",
       "email": "altay.aydemir@gmail.com",
       "url": "http://altayaydemir.com/"
@@ -158,6 +159,7 @@
     "react-router": "^3.0.2",
     "react-router-redux": "^4.0.7",
     "react-router-scroll": "^0.4.1",
+    "react-scroll": "^1.4.5",
     "redux": "^3.6.0",
     "redux-connect": "^5.0.0",
     "redux-logger": "^2.7.4",
