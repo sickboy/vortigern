@@ -15,7 +15,7 @@ export default class About extends React.Component<any, any> {
 
     return (
       <div className={[s.about].join(' ')}>
-        <div className="row grid-container">
+        <div className="row masonry grid-container">
           <div className="col m6">
             <div className="card hoverable">
               <div className="card-image waves-effect waves-block waves-light">
