@@ -75,7 +75,7 @@ app.get('*', (req, res) => {
           .then(() => <ApolloProvider client={ac}>
             <Provider store={store} key="provider">
               <ReduxAsyncConnect {...renderProps} />
-            </Provider>,
+            </Provider>
           </ApolloProvider>)
           .then((reactApp) => getDataFromTree(reactApp)
             .then(() => {
