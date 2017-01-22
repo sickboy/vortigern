@@ -19,7 +19,7 @@ export default class Home extends React.Component<any, any> {
       <div className={s.home}>
         <div className="container">
           <div className="row grid-container">
-            <div className="col m5 l3">
+            <div className="col m5 l4 xl3">
               <div className="card">
                 <div className="card-image">
                   <img className="responsive-img circle" src={require('./avatar.png')} />
@@ -38,7 +38,7 @@ export default class Home extends React.Component<any, any> {
               </div>
             </div>
           </div>
-            <div className="col m7 l9">
+            <div className="col m7 l8 xl9">
             <div id="about">
                 <h3>About me</h3>
                 <About />

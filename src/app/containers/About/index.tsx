@@ -16,7 +16,7 @@ export default class About extends React.Component<any, any> {
     return (
       <div className={[s.about].join(' ')}>
         <div className="row grid-container">
-          <div className="col m6">
+          <div className="col s12 xl6">
             <div className="card hoverable">
               <div className="card-image waves-effect waves-block waves-light">
                 <img className="activator" src={require('./intro.jpg')} />
@@ -38,7 +38,7 @@ export default class About extends React.Component<any, any> {
             </div>
           </div>
 
-          <div className="col m6">
+          <div className="col s12 xl6">
             <div className="card hoverable">
               <div className="card-image waves-effect waves-block waves-light">
                 <img className="activator" src={require('./development.jpg')} />
@@ -61,7 +61,7 @@ export default class About extends React.Component<any, any> {
             </div>
           </div>
 
-          <div className="col m6">
+          <div className="col s12 xl6">
             <div className="card hoverable">
               <div className="card-image waves-effect waves-block waves-light">
                 <img className="activator" src={require('./network.jpg')} />
@@ -83,7 +83,7 @@ export default class About extends React.Component<any, any> {
             </div>
           </div>
 
-          <div className="col m6">
+          <div className="col s12 xl6">
             <div className="card hoverable">
               <div className="card-image waves-effect waves-block waves-light">
                 <img className="activator" src={require('./heroes.jpg')} />
@@ -105,7 +105,7 @@ export default class About extends React.Component<any, any> {
             </div>
           </div>
 
-          <div className="col m6">
+          <div className="col s12 xl6">
             <div className="card hoverable">
               <div className="card-image waves-effect waves-block waves-light">
                 <img className="activator" src={require('./favorites.jpg')} />
