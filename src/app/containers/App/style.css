@@ -26,22 +26,6 @@
   }
 }
 
-:global(.masonry) {
-  >div {
-    width: 50%;
-    display: inline-block;
-  }
-
-  display: -ms-flexbox;
-  -ms-flex-direction: column;
-  -ms-flex-wrap: wrap;
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  height: 100vw;
-  font-size: 0;
-}
-
 :global(nav a.active) {
   background-color: gray;
 }
