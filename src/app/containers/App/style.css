@@ -27,7 +27,7 @@
 }
 
 :global(nav a.active) {
-  background-color: gray;
+  background-color: rgba(0, 0, 0, 0.1);
 }
 
 
