@@ -1,4 +1,4 @@
-I've built a lot of open-source and closed-source software.
+I've got a lot of experience building open-source and closed-source software.
 
 ### Approaches, Patterns and Principles
 
@@ -17,11 +17,17 @@ I've built a lot of open-source and closed-source software.
 
 ### Outside the Code
 
+* Confluence
 * GitHub
-* KANBAN
-* SCRUM
 * Trello
 * Visual Studio Team Services
+* YouTrack
+
+Practices
+
+* Detailed technical analysis, research and specification
+* KANBAN
+* SCRUM
 
 Cloud Services
 
@@ -35,7 +41,8 @@ Cloud Services
 * C#
 * C++ (limited)
 * Javascript/JSX, Typescript/TSX (ES5, ES2015, ES2016+)
-* Ruby (and limited Python)
+* Python
+* Ruby
 * PowerShell
 * SQL
 
@@ -45,11 +52,12 @@ I love building SPA's (Single Page Application) with the latest and greatest web
 
 #### Technologies
 
-CSS3/4 and SCSS/SASS, HTML5, JS/TS (ES2015+)
+CSS3/4 and SCSS/SASS, HTML5, JS/TS (ES2015/ES2017)
 
 * .NET Core, ASP.Net
 * Aurelia
 * Angular
+* Django
 * GraphQL
 * React
 * Ruby on Rails
